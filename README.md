@@ -76,7 +76,7 @@ Create a Procfile
 
 Build the Go App
   Compile the app into a binary that Heroku can execute:
-    go build -o go-heroku
+    GOOS=linux GOARCH=amd64 go build -o go-heroku
 
 Add a .gitignore
   Create a .gitignore file to exclude unnecessary files:
