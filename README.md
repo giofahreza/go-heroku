@@ -116,6 +116,17 @@ Initialize Git Repository
     git add .
     git commit -m "Initial commit"
 
+Add the Heroku Git Remote
+  heroku apps
+  heroku git:remote -a io-go-heroku
+
+Verify the Remote
+  git remote -v
+
+  it should be :
+  heroku  https://git.heroku.com/io-go-heroku.git (fetch)
+  heroku  https://git.heroku.com/io-go-heroku.git (push)
+
 Deploy to Heroku
   Push your code to Heroku:
     git push heroku main
@@ -154,3 +165,27 @@ Redeploy
 Remove the App
   If you no longer need the app
     heroku apps:destroy --app go-heroku --confirm go-heroku
+
+
+
+
+
+----------------------------------------------------------------------------
+
+
+
+
+Additional Steps if there's a Problem
+
+Reauthenticate with Heroku: If the problem persists, log out and back into Heroku:
+  heroku logout
+  heroku login
+
+Use SSH Instead of HTTPS: Convert your Heroku remote to use SSH (avoids HTTPS-specific issues):
+  heroku git:remote -a your-app-name
+  heroku keys:add
+  git remote set-url heroku git@heroku.com:your-app-name.git
+  git push heroku main
+
+Check Heroku Git URL: Verify the remote URL is correct:
+  git remote -v
