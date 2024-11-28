@@ -1,1 +1,1 @@
-web: ./io-go-heroku
+web: ./go-heroku
